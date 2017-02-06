@@ -1,0 +1,394 @@
+html {
+  height: 100%; }
+
+body {
+  overflow-x: hidden;
+  height: 100%; }
+
+h2 {
+  text-transform: uppercase; }
+
+/****  HELPERS  ****/
+.full-width {
+  width: 100%; }
+
+.full-height {
+  height: 100%; }
+
+.position-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%); }
+
+.vertical-center {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%); }
+
+.horizontal-center {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%); }
+
+.has-bg, .block-box .normal, .block-box .hover {
+  background-size: cover;
+  background-position: center center; }
+
+.table {
+  display: table;
+  height: 100%;
+  width: 100%;
+  margin: 0; }
+  .table-cell {
+    display: table-cell;
+    vertical-align: middle; }
+
+/****  ANIMATIONS  ****/
+.transition, .block-box .normal, .block-box .hover {
+  transition: all 0.4s ease-in;
+  -moz-transition: all 0.4s ease-in;
+  -webkit-transition: all 0.4s ease-in; }
+
+.active {
+  opacity: 1;
+  -webkit-transform: scale(1, 1);
+  -ms-transform: scale(1, 1);
+  transform: scale(1, 1); }
+
+.inactive {
+  opacity: 0;
+  -webkit-transform: scale(0, 0);
+  -ms-transform: scale(0, 0);
+  transform: scale(0, 0); }
+
+.blur, .block-box:hover > .normal {
+  -webkit-filter: blur(10px);
+  -moz-filter: blur(10px);
+  -ms-filter: blur(10px);
+  -o-filter: blur(10px);
+  filter: blur(10px); }
+
+.block-box {
+  height: 100%;
+  border: 1px solid #fff;
+  background-size: cover;
+  background-position: center center;
+  overflow: hidden;
+  position: relative; }
+  .block-box:hover > .hover {
+    opacity: 1; }
+  .block-box .normal {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0; }
+  .block-box .hover {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 0; }
+
+.container-fluid {
+  margin: 0; }
+
+/* HEADER  */
+header {
+  background-color: red;
+  height: 11%; }
+  header .zitec-logo {
+    background-image: url("../img/header-bg.jpg"); }
+    header .zitec-logo p.logo-text {
+      max-width: 200px;
+      text-align: right;
+      right: 20px; }
+  header .zitec-join-us {
+    background-image: url("../img/join-us-bg.jpg"); }
+    header .zitec-join-us .title-holder {
+      width: 100%;
+      text-align: center; }
+    header .zitec-join-us h2 {
+      font-weight: bold;
+      color: #fff; }
+    header .zitec-join-us:hover h2 {
+      animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+      transform: translate3d(0, 0, 0);
+      backface-visibility: hidden;
+      perspective: 1000px; }
+  header .zitec-visit {
+    background-image: url("../img/official-website-bg.jpg"); }
+    header .zitec-visit .visit-content {
+      padding: 0 15px; }
+      header .zitec-visit .visit-content img {
+        display: inline-block;
+        vertical-align: middle; }
+
+section {
+  height: 89%; }
+  section .row-first {
+    height: 55%; }
+    @media (max-width: 1024px) {
+      section .row-first {
+        height: 50%; } }
+  section .row-second {
+    height: 45%; }
+    @media (max-width: 1024px) {
+      section .row-second {
+        height: 50%; } }
+  section .zitec-video {
+    background-color: #cecece;
+    padding: 0; }
+    section .zitec-video iframe {
+      width: calc(100% + 100px);
+      height: calc(100% + 100px); }
+    section .zitec-video .video-cover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      background-image: url("../img/video.jpg");
+      background-size: cover;
+      opacity: 1; }
+      section .zitec-video .video-cover:hover {
+        cursor: pointer; }
+      section .zitec-video .video-cover.clicked {
+        opacity: 0;
+        pointer-events: none; }
+  section .zitec-do h2 {
+    text-align: center;
+    position: relative;
+    z-index: 2; }
+  section .zitec-do .normal {
+    background-image: url("../img/do-or-do-not-there-is-no-try.jpg"); }
+  section .zitec-do .hover {
+    background-image: url("../img/do-or-do-not-there-is-no-try-hover.jpg"); }
+  section .zitec-hacker .normal {
+    background-color: #d9241f;
+    background-image: url("../img/hacker-icon.png"); }
+  section .zitec-hacker .hover {
+    background-image: url("../img/hacker-icon-hover.jpg"); }
+  section .zitec-force {
+    background-color: #000;
+    background-image: url("../img/starsbg.jpg"); }
+    section .zitec-force .starsField1,
+    section .zitec-force .starsField2 {
+      width: 100%;
+      height: 100%;
+      background-image: url("../img/stars.png");
+      background-position: center center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0; }
+    section .zitec-force:hover .starsField1,
+    section .zitec-force:hover .starsField2 {
+      animation-name: forceRises;
+      animation-duration: 3s;
+      animation-iteration-count: infinite;
+      animation-direction: normal;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
+      animation-delay: initial; }
+    section .zitec-force:hover .starsField2 {
+      animation-delay: 1.5s; }
+  section .zitec-pixels {
+    height: 50%;
+    background-color: blue;
+    position: relative; }
+    section .zitec-pixels h2 {
+      color: #fff;
+      width: 100%;
+      text-align: center; }
+      section .zitec-pixels h2 i {
+        background-color: #f55012;
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        margin: 0 10px;
+        vertical-align: bottom; }
+    section .zitec-pixels .pixels {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0; }
+      section .zitec-pixels .pixels span {
+        display: block;
+        width: calc(100%/8);
+        height: calc(100%/3);
+        float: left; }
+      section .zitec-pixels .pixels .pixel1 {
+        background-color: rgba(22, 19, 41, 0.08);
+        animation-duration: 1s; }
+      section .zitec-pixels .pixels .pixel2 {
+        background-color: rgba(17, 14, 19, 0.24);
+        animation-duration: 1s; }
+      section .zitec-pixels .pixels .pixel3 {
+        background-color: rgba(21, 14, 36, 0.25);
+        animation-duration: 2s; }
+      section .zitec-pixels .pixels .pixel4 {
+        background-color: rgba(20, 17, 46, 0.12);
+        animation-duration: 1s; }
+      section .zitec-pixels .pixels .pixel5 {
+        background-color: rgba(3, 20, 32, 0.01);
+        animation-duration: 1s; }
+      section .zitec-pixels .pixels .pixel6 {
+        background-color: rgba(28, 14, 20, 0.05);
+        animation-duration: 1s; }
+      section .zitec-pixels .pixels .pixel7 {
+        background-color: rgba(3, 10, 27, 0.15);
+        animation-duration: 1s; }
+      section .zitec-pixels .pixels .pixel8 {
+        background-color: rgba(16, 19, 21, 0.02);
+        animation-duration: 2s; }
+      section .zitec-pixels .pixels .pixel9 {
+        background-color: rgba(23, 7, 43, 0.13);
+        animation-duration: 1s; }
+      section .zitec-pixels .pixels .pixel10 {
+        background-color: rgba(18, 32, 6, 0.33);
+        animation-duration: 2s; }
+      section .zitec-pixels .pixels .pixel11 {
+        background-color: rgba(7, 28, 43, 0.07);
+        animation-duration: 2s; }
+      section .zitec-pixels .pixels .pixel12 {
+        background-color: rgba(12, 24, 0, 0.46);
+        animation-duration: 2s; }
+      section .zitec-pixels .pixels .pixel13 {
+        background-color: rgba(16, 31, 39, 0.46);
+        animation-duration: 1s; }
+      section .zitec-pixels .pixels .pixel14 {
+        background-color: rgba(13, 35, 6, 0.4);
+        animation-duration: 1s; }
+      section .zitec-pixels .pixels .pixel15 {
+        background-color: rgba(10, 11, 41, 0.37);
+        animation-duration: 1s; }
+      section .zitec-pixels .pixels .pixel16 {
+        background-color: rgba(6, 17, 2, 0.31);
+        animation-duration: 2s; }
+      section .zitec-pixels .pixels .pixel17 {
+        background-color: rgba(1, 32, 5, 0.15);
+        animation-duration: 2s; }
+      section .zitec-pixels .pixels .pixel18 {
+        background-color: rgba(7, 1, 35, 0.41);
+        animation-duration: 1s; }
+      section .zitec-pixels .pixels .pixel19 {
+        background-color: rgba(12, 17, 7, 0.35);
+        animation-duration: 2s; }
+      section .zitec-pixels .pixels .pixel20 {
+        background-color: rgba(20, 35, 12, 0.12);
+        animation-duration: 2s; }
+      section .zitec-pixels .pixels .pixel21 {
+        background-color: rgba(22, 32, 49, 0.29);
+        animation-duration: 1s; }
+      section .zitec-pixels .pixels .pixel22 {
+        background-color: rgba(4, 11, 0, 0.42);
+        animation-duration: 1s; }
+      section .zitec-pixels .pixels .pixel23 {
+        background-color: rgba(15, 27, 30, 0.26);
+        animation-duration: 2s; }
+      section .zitec-pixels .pixels .pixel24 {
+        background-color: rgba(7, 12, 41, 0.43);
+        animation-duration: 2s; }
+      section .zitec-pixels .pixels .pixel25 {
+        background-color: rgba(19, 30, 26, 0.06);
+        animation-duration: 1s; }
+      section .zitec-pixels .pixels .pixel26 {
+        background-color: rgba(25, 40, 22, 0.09);
+        animation-duration: 2s; }
+      section .zitec-pixels .pixels .pixel27 {
+        background-color: rgba(10, 34, 24, 0.24);
+        animation-duration: 1s; }
+      section .zitec-pixels .pixels .pixel28 {
+        background-color: rgba(0, 39, 27, 0.49);
+        animation-duration: 2s; }
+      section .zitec-pixels .pixels .pixel29 {
+        background-color: rgba(6, 4, 15, 0.18);
+        animation-duration: 1s; }
+      section .zitec-pixels .pixels .pixel30 {
+        background-color: rgba(1, 3, 47, 0.07);
+        animation-duration: 1s; }
+    section .zitec-pixels:hover .pixels span {
+      animation-name: colorize;
+      animation-iteration-count: infinite;
+      animation-direction: normal;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards; }
+  section .zitec-opp {
+    height: 50%; }
+    section .zitec-opp .normal {
+      background-image: url("../img/online-marketing.jpg");
+      background-position: top; }
+    section .zitec-opp .hover {
+      background-image: url("../img/online-marketing-hover.gif");
+      background-position: top; }
+  section .zitec-magic h2 {
+    position: absolute;
+    bottom: 5%; }
+  section .zitec-magic .normal {
+    background-image: url("../img/make-it-magic.jpg"); }
+  section .zitec-magic .hover {
+    background-image: url("../img/make-it-magic-hover.jpg"); }
+
+/*  ANIMATIONS */
+@-webkit-keyframes forceRises {
+  0% {
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1);
+    opacity: 0; }
+  50% {
+    opacity: 1; }
+  100% {
+    -webkit-transform: scale(2, 2);
+    -ms-transform: scale(2, 2);
+    transform: scale(2, 2);
+    opacity: 1; } }
+@keyframes forceRises {
+  0% {
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1);
+    opacity: 0; }
+  50% {
+    opacity: 1; }
+  100% {
+    -webkit-transform: scale(2, 2);
+    -ms-transform: scale(2, 2);
+    transform: scale(2, 2);
+    opacity: 0; } }
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0); }
+  20%, 80% {
+    transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0); }
+  40%, 60% {
+    transform: translate3d(4px, 0, 0); } }
+@keyframes colorize {
+  0% {
+    opacity: 1; }
+  25% {
+    opacity: 0.3; }
+  50% {
+    opacity: 1; }
+  75% {
+    opacity: 0.3; }
+  100% {
+    opacity: 1; } }
+
+/*# sourceMappingURL=style.css.map */

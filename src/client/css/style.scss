@@ -1,0 +1,462 @@
+$minMobile: "(min-width : 320px)";
+$minTablet: '(min-width: 768px)';
+$minLarge: '(min-width: 1024px)';
+$maxLarge: '(max-width: 1024px)';
+
+
+$maxMobile: '(max-width: 768px)';
+
+$prefixes: 'webkit','ms';
+@mixin prefix($property, $value) {
+  @each $prefix in $prefixes {
+    #{'-' + $prefix + '-' + $property}: $value;
+  }
+
+  // Output standard non-prefixed declaration
+  #{$property}: $value;
+}
+
+html {height: 100%;}
+body {
+    overflow-x: hidden;
+    height: 100%;
+}
+
+h2 {
+    text-transform: uppercase;
+}
+
+
+/****  HELPERS  ****/
+.full-width {
+    width: 100%;
+}
+.full-height {
+    height: 100%;
+}
+.position-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+}
+.vertical-center {
+    position: absolute;
+    top: 50%;
+    @include prefix(transform, translateY(-50%));
+}
+.horizontal-center {
+    position: absolute;
+    left: 50%;
+    @include prefix(transform, translateX(-50%));
+}
+
+.has-bg {
+    background-size: cover;
+    background-position: center center;
+}
+
+.table {
+    display: table;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    &-cell {
+        display: table-cell;
+        vertical-align: middle;
+    }
+}
+
+
+
+
+/****  ANIMATIONS  ****/
+.transition {
+    transition: all 0.4s ease-in;
+    -moz-transition: all 0.4s ease-in;
+    -webkit-transition: all 0.4s ease-in;
+}
+
+
+.active {
+    opacity: 1;
+    @include prefix(transform, scale(1,1));
+}
+
+.inactive {
+    opacity: 0;
+    @include prefix(transform, scale(0,0));
+}
+
+.blur {
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    -ms-filter: blur(10px);
+    -o-filter: blur(10px);
+    filter: blur(10px);
+}
+
+
+.block-box {
+    height: 100%;
+    border: 1px solid #fff;
+    background-size: cover;
+    background-position: center center;
+    overflow: hidden;
+    position: relative;
+
+     &:hover {
+        > .normal {
+            @extend .blur;
+        }
+        > .hover {
+            opacity: 1;
+        }
+    }
+
+    .normal {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        @extend .has-bg;
+        @extend .transition;
+    }
+    .hover {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        z-index: 0;
+        @extend .has-bg;
+        @extend .transition;
+    }
+}
+
+
+
+
+
+.container-fluid {
+    margin: 0;
+}
+
+/* HEADER  */
+header {
+    background-color: red;
+    height: 11%;
+
+    .zitec-logo {
+        background-image: url('../img/header-bg.jpg');
+
+        p.logo-text {
+            max-width: 200px;
+            text-align: right;
+            right: 20px;
+        }
+    }
+    .zitec-join-us {
+        background-image: url('../img/join-us-bg.jpg');
+
+        .title-holder{
+            width: 100%;
+            text-align: center;
+        }
+
+        h2 {
+            font-weight: bold;
+            color: #fff;
+        }
+
+        &:hover {
+            h2 {
+                animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+                transform: translate3d(0, 0, 0);
+                backface-visibility: hidden;
+                perspective: 1000px;
+            }
+        }
+            }
+    .zitec-visit {
+        background-image: url('../img/official-website-bg.jpg');
+        .visit-content {
+            padding: 0 15px;
+            img {
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+    }
+}
+
+section {
+    height: 89%;
+
+    .row-first {
+        height: 55%;
+         @media #{$maxLarge} {
+            height: 50%;
+        }
+    }
+    .row-second {
+        height: 45%;
+        @media #{$maxLarge} {
+            height: 50%;
+        }
+    }
+
+    .zitec {
+        &-video {
+            background-color: #cecece;
+            padding: 0;
+            iframe {
+                width: calc(100% + 100px);
+                height: calc(100% + 100px);
+
+            }
+
+            .video-cover {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 2;
+                background-image: url('../img/video.jpg');
+                background-size: cover;
+                opacity: 1;
+                &:hover {
+                    cursor: pointer;
+                }
+                &.clicked {
+                    opacity: 0;
+                    pointer-events: none;
+                }
+
+            }
+        }
+        &-do {
+
+            h2 {
+                text-align: center;
+                position: relative;
+                z-index: 2;
+            }
+            .normal {
+                background-image: url('../img/do-or-do-not-there-is-no-try.jpg');
+            }
+            .hover {
+                background-image: url('../img/do-or-do-not-there-is-no-try-hover.jpg');
+            }
+        }
+
+        &-hacker {
+            .normal{
+                background-color: #d9241f;
+                background-image: url('../img/hacker-icon.png');
+            }
+            .hover {
+                background-image: url('../img/hacker-icon-hover.jpg');
+            }
+
+
+        }
+        &-force {
+            background-color: #000;
+            background-image: url('../img/starsbg.jpg');
+            .starsField1,
+            .starsField2 {
+                width: 100%;
+                height: 100%;
+                background-image: url('../img/stars.png');
+                background-position: center center;
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 0;
+            }
+            &:hover {
+                .starsField1,
+                .starsField2 {
+                   animation-name: forceRises;
+                    animation-duration: 3s;
+                    animation-iteration-count: infinite;
+                    animation-direction: normal;
+                    animation-timing-function: linear;
+                    animation-fill-mode: forwards;
+                    animation-delay: initial;
+                }
+                .starsField2 {
+                    animation-delay: 1.5s;
+                }
+            }
+        }
+        &-mix {}
+        &-pixels {
+            height: 50%;
+            background-color: blue;
+            position: relative;
+            h2 {
+                color: #fff;
+                width: 100%;
+                text-align: center;
+                i {
+                    background-color: #f55012;
+                    display: inline-block;
+                    width: 35px;
+                    height: 35px;
+                    margin: 0 10px;
+                    vertical-align: bottom;
+                }
+            }
+
+            .pixels {
+
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                span {
+                    display: block;
+                    width: calc(100%/8);
+                    height: calc(100%/3);
+                    float: left;
+                }
+                @for $i from 1 through 30 {
+
+                    $red: random(30)-1;
+                    $green: random(50)-1;
+                    $blue: random(50)-1;
+                    $alpha: random(50)/100;
+
+                    .pixel#{$i} {
+                        background-color: rgba($red, $green, $blue, $alpha);
+                        animation-duration: #{random(2)}s;
+
+
+                    }
+                }
+            }
+
+            &:hover {
+                .pixels span {
+                     animation-name: colorize;
+                    // animation-duration: 1s;
+                    animation-iteration-count: infinite;
+                    animation-direction: normal;
+                    animation-timing-function: linear;
+                    animation-fill-mode: forwards;
+                    // animation-delay: initial;
+                }
+            }
+
+
+
+        }
+        &-opp {
+             height: 50%;
+
+            .normal{
+                background-image: url('../img/online-marketing.jpg');
+                background-position: top;
+            }
+            .hover {
+                background-image: url('../img/online-marketing-hover.gif');
+                background-position: top;
+            }
+        }
+        &-magic {
+
+
+            h2 {
+                position: absolute;
+                bottom: 5%;
+            }
+
+            .normal {
+                background-image: url('../img/make-it-magic.jpg');
+            }
+            .hover {
+                background-image: url('../img/make-it-magic-hover.jpg');
+            }
+        }
+    }
+
+
+}
+
+/*  ANIMATIONS */
+
+
+@-webkit-keyframes forceRises {
+    0% {
+        @include prefix(transform, scale(1,1));
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    100% {
+        @include prefix(transform, scale(2,2));
+        opacity: 1;
+    }
+}
+
+@keyframes forceRises {
+    0% {
+        @include prefix(transform, scale(1,1));
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    100% {
+        @include prefix(transform, scale(2,2));
+        opacity: 0;
+    }
+}
+
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+@keyframes colorize {
+    0% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 1;
+    }
+}

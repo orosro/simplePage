@@ -1,0 +1,61 @@
+@-webkit-keyframes enterRight {
+    0% {
+        @include prefix(transform, translate(100%,0));
+        opacity: 0.5;
+    }
+    100% {
+        @include prefix(transform, translate(0%,0));
+        opacity: 1;
+    }
+}
+
+@keyframes enterRight {
+    0% {
+        @include prefix(transform, translate(100%,0));
+        opacity: 0.5;
+    }
+    100% {
+        @include prefix(transform, translate(0%,0));
+        opacity: 1;
+    }
+}
+
+
+@-webkit-keyframes exitRight {
+    0% {
+        @include prefix(transform, translate(0%,0));
+        opacity: 0.5;
+    }
+    100% {
+        @include prefix(transform, translate(100%,0));
+        opacity: 1;
+    }
+}
+
+@keyframes exitRight {
+    0% {
+        @include prefix(transform, translate(0%,0));
+        opacity: 0.5;
+    }
+    100% {
+        @include prefix(transform, translate(100%,0));
+        opacity: 1;
+    }
+}
+
+.animateEnterRight {
+    animation-name: enterRight;
+}
+.animateExitRight {
+    animation-name: exitRight;
+}
+
+
+.animated {
+    // animation-name: default;
+    animation-duration: 0.2s;
+    animation-timing-function: ease-out;
+    animation-delay: 0;
+    animation-direction:alternate;
+    animation-fill-mode: forwards;
+}
